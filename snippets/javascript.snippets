@@ -71,3 +71,7 @@ snippet mbsn
 # import
 snippet imp
 	import ${1:name} from '${2:$1}'
+
+# defprop
+snippet defprop
+	${1:Model}.defineProperty('${2:name}', { type: String, default: ${3:''}, description: '${4:$2}' })
