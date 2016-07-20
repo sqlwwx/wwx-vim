@@ -1,0 +1,28 @@
+# default tpl
+snippet vuetpl
+	<template>
+	<div class="${1:name}">
+	  ${2:$1}
+	</div>
+	</template>
+	<script>
+	import { ${3:logout} } from '${4}../vuex/actions'
+	export default {
+	  vuex: {
+		  getters: {
+			  user: ({auth}) => auth.user${5}
+			},
+			actions: {
+			  logout${6}
+			}
+		},
+	  data () {
+		  return {${7}}
+		}
+	}
+	</script>
+	<style scoped>
+	.${8:$1} {
+	  color: #42b983;
+	}
+	</style>

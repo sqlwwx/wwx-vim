@@ -1,0 +1,73 @@
+# js model
+snippet jsmodel
+	const LOG = global.Log('${1:apps}:${2:Model}')
+	import Promise from 'bluebird'
+
+	module.exports = function (${3:$2}) {
+	}
+## es6
+# Generator function
+snippet gfn
+	function* ${1:name}(${2}) {
+		yield ${3};
+	}
+
+# Class
+snippet class
+	class ${1:name} {
+		constructor (${2:arg}) {
+			${3:// init}
+		}${4}
+	}
+
+# For of loop
+snippet forof
+	for (let ${1:s} of ${2:sequence}) {
+		${3}
+	}
+
+## loopback
+# model
+snippet model
+	const LOG = global.Log('${1:apps}:${2:Model}')
+
+	module.exports = function (${3:$2}) {
+	  LOG.info('init')
+	}
+
+# after save
+snippet aftersave
+	${1:Model}.observe('after save', (ctx, next) => {
+	  let {instance, isNewInstance} = ctx
+		if (instance && isNewInstance) {
+		  next()
+		} else {
+		  next()
+		}
+	})
+
+# before remote
+snippet beforeremote
+	${1:Model}.beforeRemote('${2:**}', (ctx, modelInstance, next) => {
+	  next()
+	})
+
+# after remote
+snippet afterremote
+	${1:Model}.afterRemote('${2:**}', (ctx, modelInstance, next) => {
+	  next()
+	})
+
+# model before save
+snippet mbsn
+	${1:Model}.observe('before save', (ctx, next) => {
+	  let {instance, isNewInstance, currentInstance, data} = ctx;
+	  if (isNewInstance && instance) {
+		  ${0}
+		}
+		next()
+	}
+
+# import
+snippet imp
+	import ${1:name} from '${2:$1}'

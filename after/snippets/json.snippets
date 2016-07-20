@@ -1,0 +1,75 @@
+# meta
+snippet meta
+	{
+	  "name": "${1:name}",
+		"version": "0.0.1",
+		"sequence": 100,
+		"description": "${2:$1}",
+		"category": "${3:base}",
+		"depends": [
+		  "base"
+		],
+		"data": [],
+		"demo": [],
+		"installable": true,
+		"application": true,
+		"autoInstall": false,
+		"test": []
+	}
+
+# prop
+snippet prop
+	"${1:name}": {
+	  "type": "${2:string}",
+		"description": "${3:$1}",
+		"required": ${4:true}
+	},
+
+# relations
+## m2o
+snippet relm2o
+	"${1:key}": {
+	  "type": "belongsTo",
+		"model": "${2:$1}",
+		"foreignKey": "${3:$1}Id"
+	},
+## o2m
+snippet relo2m
+	"${1:key}": {
+	  "type": "hasMany",
+		"model": "${2:$1}",
+		"foreignKey": "${3}Id"
+	}${4:,}
+
+## remoteMethod
+snippet remmethod
+	"${1:methodName}": {
+	  "isStatic": ${2:false},
+		"accepts": [${3}],
+		"returns": {
+		  "arg": "result",
+			"type": "object",
+			"root": true
+		},
+		"description": "${4:$1}",
+		"http": {
+		  "path": "/${5:$1}",
+			"verb": "post"
+		}
+	}
+
+# model
+snippet model
+	{
+	  "name": "${1:name}",
+		"description": "${2:$1}",
+		"base": "${3:PersistedModel}",
+		"idInjection": true,
+		"properties": {
+		},
+		"validations": [],
+		"relations": {
+		},
+		"acls": [],
+		"methods": {}
+	}
